@@ -1,24 +1,25 @@
 import React, { Component } from "react"
 import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const CardComponent = () => {
-    
+
+const CardComponent = (props) => {
+
     return (
         <View style={styles.container}>
             <View style={styles.card}>
                 <View style={styles.text}>
                     <View style={styles.overlay}>
-                        <Text style={styles.overlayText}>Burrell Street</Text>
+                        <Text style={styles.overlayText}>{props.overlayString}</Text>
                     </View>
                     <View style={styles.title}>
-                        <Text style={styles.titleText}>Clinics</Text>
+                        <Text style={styles.titleText}>{props.titleString}</Text>
                     </View>
                     <View style={styles.description}>
-                        <Text style={styles.descriptionText}>Book an appointment in seconds</Text>
+                        <Text style={styles.descriptionText}>{props.descriptionString}</Text>
                     </View>
                 </View>
                 <View style={styles.icon}>
-                
+                    
                 </View>
             </View>
         </View>
@@ -29,17 +30,18 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        alignSelf: 'stretch',
         backgroundColor: '#FFFFFF',
+        marginTop: 16,
+        paddingLeft: 16,
+        paddingRight: 16,
     },
     card: {
         flex: 1,
         minWidth: 343,
         minHeight: 127,
         maxHeight: 127,
-        justifyContent: 'center',
-        alignSelf: 'center',
+        alignSelf: 'stretch',
         padding: 16,
         flexGrow: 1,
         flexShrink: 1,
@@ -103,6 +105,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: 'Avenir-Book',
         color: '#2C4159',
+        flexShrink: 1
     }
 })
 export default CardComponent;

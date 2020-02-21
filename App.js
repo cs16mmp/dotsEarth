@@ -24,16 +24,13 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import CardComponent from './Components/CardComponent'
-
+import HomeScreen from './Screens/HomeScreen'
 
 const App = () => {
   return (
-      <View style={styles.card}>
-        <CardComponent>
-
-        </CardComponent>
-      </View>
+      <SafeAreaView style={styles.container}>
+        <HomeScreen></HomeScreen>
+      </SafeAreaView>
   );
 }
 //   return (
@@ -124,7 +121,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
+  container: {
+    flex: 1,
+    marginTop: 44,
+  },
 });
 
 export default App;
