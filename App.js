@@ -5,6 +5,10 @@
  * @format
  * @flow
  */
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { navigationRef } from './RootNavigation';
+
 
 import React, { Component } from 'react';
 import {
@@ -28,9 +32,14 @@ import HomeScreen from './Screens/HomeScreen'
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-    <HomeScreen></HomeScreen>
-    </SafeAreaView>
+
+    <NavigationContainer ref={navigationRef}>
+      <SafeAreaView style={styles.container}>
+        <HomeScreen></HomeScreen>
+      </SafeAreaView>
+
+
+    </NavigationContainer>
   );
 }
 

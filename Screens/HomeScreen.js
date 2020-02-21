@@ -7,14 +7,22 @@ import {
     StatusBar,
     FlatList,
     ScrollView,
+    TouchableHighlight,
 } from 'react-native';
 import CardComponent from '../Components/CardComponent'
 import database from "../databases/data.json"
+import * as RootNavigation from '../RootNavigation';
+
 
 var data = JSON.parse(JSON.stringify(database));
 var DATA = []
 DATA = data.MainMenuItems;
 
+function nextScreen() {
+    return (
+        RootNavigation.navigate('ChatScreen', { userName: 'Lucy' })
+    );
+}
 
 function Item({ overlay, title, description }) {
     return (
@@ -29,12 +37,14 @@ const MainMenu = () => {
     return (
         <FlatList
             data={DATA}
-            renderItem={({ item }) =>
-                <Item
-                    overlay={item.overlay}
-                    title={item.title}
-                    description={item.description}
-                />}
+            renderItem={({ item }) => (
+                <TouchableHighlight onPress={() => console.warn("HOLIIII")}>
+                    <Item
+                        overlay={item.overlay}
+                        title={item.title}
+                        description={item.description}
+                    />
+                </TouchableHighlight>)}
             keyExtractor={item => item.id}
         />
     )
