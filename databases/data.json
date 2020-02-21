@@ -1,0 +1,38 @@
+{
+    "MainMenuItems": [
+        {
+            "id": "01",
+            "overlay": "Burrell Street",
+            "title": "Clinics",
+            "description": "Book an appointment in seconds"
+        },
+        {
+            "id": "02",
+            "overlay": "SECURE SEARCH",
+            "title": "Organisations",
+            "description": "Find LGBTQI+ organisations across the UK"
+        },
+        {
+            "id": "04",
+            "overlay": "INFO",
+            "title": "STDs",
+            "description": "Find information about STDs and their symptoms"
+        },
+        {
+            "id": "05",
+            "overlay": "NOTIFICATIONS",
+            "title": "Reminders",
+            "description": "Manage your friendly reminders"
+        },
+        {
+            "id": "06",
+            "overlay": "Arrive in approximate 3 days",
+            "title": "Order Testing Kit",
+            "description": "Order a free and confidential home testing kit"
+        }
+    ],
+    "CalendarItems":[
+
+    ]
+}
+
