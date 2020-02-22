@@ -1,20 +1,36 @@
 import React, { Component } from "react"
-import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, Text, StyleSheet, TouchableOpacity, FlatList, TouchableHighlight } from 'react-native';
+import BookingCardComponent from "./BookingCardComponent";
+import { Overlay } from 'react-native-elements';
+import DrawScreen from "../Screens/DrawScreen";
 
 
-const AppointmentsComponent = (props) => {
+DATA = ["9:30am", "10:30am", "11:30am", "12:30pm", "01:30pm", "02:30pm"]
 
+
+function Item({ time }) {
     return (
-        
-        <View></View>
-
+        <BookingCardComponent
+            timeString={time}
+        />
     );
 }
+
+const AppointmentsComponent = (props) => {
+    return (
+        <FlatList
+            data={DATA}
+            renderItem={({ item }) => (
+                <TouchableHighlight 
+                onPress={() => { 
+                    console.warn("pressed")}}>
+                    <Item
+                        time={item}
+                    />
+                </TouchableHighlight>)}
+            keyExtractor={item => item.id}
+        />
+    );
+
+}
 export default AppointmentsComponent;
-
-
-const styles = StyleSheet.create({
-
-   
-    
-})

@@ -1,11 +1,11 @@
 import React, { Component } from "react"
 import { View, Image, Text, StyleSheet, TouchableOpacity, FlatList, TouchableHighlight } from 'react-native';
 import SmallCardComponent from "./SmallCardComponent";
+
 import database from "../databases/data.json"
 
-var data = JSON.parse(JSON.stringify(database));
-var DATA = []
-DATA = data.Clinics;
+var DATA = JSON.parse(JSON.stringify(database));
+var clinicsDATA = DATA.Clinics;
 
 function Item({ overlay, title, phoneNumber, address }) {
     return (
@@ -17,14 +17,13 @@ function Item({ overlay, title, phoneNumber, address }) {
         />
     );
 }
-
 const ClinicsCarouselComponent = (props) => {
     return (
         <FlatList
             horizontal={true}
-            data={DATA}
+            data={clinicsDATA}
             renderItem={({ item }) => (
-                <TouchableHighlight onPress={() => console.warn("HOLIIII")}>
+                <TouchableHighlight onPress={() => console.warn("Pressed")}>
                     <Item
                         overlay={item.overlay}
                         title={item.title}
@@ -35,7 +34,6 @@ const ClinicsCarouselComponent = (props) => {
             keyExtractor={item => item.id}
         />
     );
-
 }
 export default ClinicsCarouselComponent;
 

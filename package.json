@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "npx react-native run-ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
@@ -18,7 +18,7 @@
     "react-dom": "^16.12.0",
     "react-native": "0.61.5",
     "react-native-elements": "^1.2.7",
-    "react-native-gesture-handler": "^1.6.0",
+    "react-native-gesture-handler": "^1.6.≈0",
     "react-native-reanimated": "^1.7.0",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.0.0-beta.10",

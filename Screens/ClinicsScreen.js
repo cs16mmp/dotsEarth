@@ -14,6 +14,7 @@ import * as RootNavigation from '../RootNavigation';
 import ClinicsCarouselComponent from '../Components/ClinicsCarouselComponent'
 import CarouselComponent from "../Components/CarouselComponent";
 import CalendarData from "../api/CalendarData"
+import AppointmentsComponent from "../Components/AppointmentsComponent";
 
 
 class ClinicsScreen extends Component {
@@ -40,9 +41,11 @@ class ClinicsScreen extends Component {
                 <View style={styles.typeAppointment}>
 
 
+
                 </View>
                 <View style={styles.availableAppointments}>
 
+                    <AppointmentsComponent></AppointmentsComponent>
 
                 </View>
 
@@ -94,7 +97,6 @@ const styles = StyleSheet.create({
     availableAppointments: {
         flex: 1,
         flexGrow: 1,
-        backgroundColor: "grey"
     },
     titleText: {
         fontSize: 34,
