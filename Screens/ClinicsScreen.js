@@ -15,6 +15,7 @@ import ClinicsCarouselComponent from '../Components/ClinicsCarouselComponent'
 import CarouselComponent from "../Components/CarouselComponent";
 import CalendarData from "../api/CalendarData"
 import AppointmentsComponent from "../Components/AppointmentsComponent";
+import TypeAppointmentComponent from "../Components/TypeAppointmentComponent";
 
 
 class ClinicsScreen extends Component {
@@ -40,7 +41,7 @@ class ClinicsScreen extends Component {
                 </View>
                 <View style={styles.typeAppointment}>
 
-
+                    <TypeAppointmentComponent></TypeAppointmentComponent>
 
                 </View>
                 <View style={styles.availableAppointments}>
@@ -92,7 +93,6 @@ const styles = StyleSheet.create({
         minHeight: 30,
         maxHeight: 30,
         flexGrow: 1,
-        backgroundColor: "grey",
     },
     availableAppointments: {
         flex: 1,
