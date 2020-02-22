@@ -29,16 +29,18 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import HomeScreen from './Screens/HomeScreen'
+import ClinicsScreen from './Screens/ClinicsScreen'
+import TestScreen from './Screens/TestScreen'
 
 const App = () => {
   return (
 
     <NavigationContainer ref={navigationRef}>
       <SafeAreaView style={styles.container}>
-        <HomeScreen></HomeScreen>
+
+      <ClinicsScreen></ClinicsScreen>
+    
       </SafeAreaView>
-
-
     </NavigationContainer>
   );
 }

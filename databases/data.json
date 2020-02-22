@@ -31,8 +31,28 @@
             "description": "Order a free and confidential home testing kit"
         }
     ],
-    "CalendarItems":[
-
+    "Clinics":[
+        {
+            "id": "01",
+            "overlay": "SOUTHWARK",
+            "title": "Burell Street",
+            "address": "4-5 Burrell St, London SE1 0UN",
+            "phoneNumber": "020 7188 6666"
+        },
+        {
+            "id": "03",
+            "overlay": "SOHO",
+            "title": "Dean Street",
+            "address": "456 Dean St, Soho, London W1D 6AE",
+            "phoneNumber": "020 3315 5656"
+        },
+        {
+            "id": "04",
+            "overlay": "HAMMERSMITH",
+            "title": "Chealsea Hospital",
+            "address": "10 Hammersmith Broadway, Hammersmith, London W6 7AL",
+            "phoneNumber": "020 3315 1010"
+        }
     ]
 }
 
