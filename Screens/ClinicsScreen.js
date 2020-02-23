@@ -60,6 +60,7 @@ export default ClinicsScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor:"white"
     },
     location: {
         paddingLeft:16,

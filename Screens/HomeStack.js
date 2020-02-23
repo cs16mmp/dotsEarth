@@ -9,12 +9,21 @@ import ClinicsScreen from './ClinicsScreen'
 
 const RootStack = createStackNavigator();
 
+//headerMode="none" 
+
 export default function HomeStack() {
     return (
         <NavigationContainer>
-            <RootStack.Navigator initialRouteName= "Home">
-                <RootStack.Screen name="Home" component={HomeScreen} />
-                <RootStack.Screen name="Clinics" component={ClinicsScreen} />
+            <RootStack.Navigator initialRouteName= "Home" headerMode="float" >
+                <RootStack.Screen 
+                name="Home" 
+                component={HomeScreen} 
+                options={{headerShown:"false"}}/>
+                
+                <RootStack.Screen 
+                name="Clinics" 
+                component={ClinicsScreen} 
+                options={{headerShown:"true"}} />
             </RootStack.Navigator>
         </NavigationContainer>
 

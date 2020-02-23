@@ -17,6 +17,10 @@ var DATA = []
 DATA = data.MainMenuItems;
 
 
+function _onTapItem(item){
+    navigation.navigate(item)
+}
+
 function Item({ overlay, title, description }) {
     return (
         <CardComponent
@@ -31,7 +35,7 @@ const MainMenu = () => {
         <FlatList
             data={DATA}
             renderItem={({ item }) => (
-                <TouchableHighlight onPress={() => console.warn("Pressed")}>
+                <TouchableHighlight onPress={() => _onTapItem(item.title)}>
                     <Item
                         overlay={item.overlay}
                         title={item.title}
@@ -43,8 +47,10 @@ const MainMenu = () => {
     )
 }
 
-class HomeScreen extends Component {
-    render() {
+function HomeScreen ({navigation}){
+
+   this.navigation = navigation
+
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -54,14 +60,14 @@ class HomeScreen extends Component {
                     <MainMenu />
                 </View>
             </View>
-        )
-    }
+        )  
 }
 export default HomeScreen;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor:"white"
     },
     header: {
         paddingLeft: 16,
