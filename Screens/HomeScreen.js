@@ -11,18 +11,11 @@ import {
 } from 'react-native';
 import CardComponent from '../Components/CardComponent'
 import database from "../databases/data.json"
-import * as RootNavigation from '../RootNavigation';
-
 
 var data = JSON.parse(JSON.stringify(database));
 var DATA = []
 DATA = data.MainMenuItems;
 
-function nextScreen() {
-    return (
-        RootNavigation.navigate('ChatScreen', { userName: 'Lucy' })
-    );
-}
 
 function Item({ overlay, title, description }) {
     return (
@@ -38,7 +31,7 @@ const MainMenu = () => {
         <FlatList
             data={DATA}
             renderItem={({ item }) => (
-                <TouchableHighlight onPress={() => console.warn("HOLIIII")}>
+                <TouchableHighlight onPress={() => console.warn("Pressed")}>
                     <Item
                         overlay={item.overlay}
                         title={item.title}

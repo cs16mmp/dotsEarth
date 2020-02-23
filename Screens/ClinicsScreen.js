@@ -10,7 +10,6 @@ import {
     TouchableHighlight,
 } from 'react-native';
 
-import * as RootNavigation from '../RootNavigation';
 import ClinicsCarouselComponent from '../Components/ClinicsCarouselComponent'
 import CarouselComponent from "../Components/CarouselComponent";
 import CalendarData from "../api/CalendarData"
@@ -21,7 +20,7 @@ import TypeAppointmentComponent from "../Components/TypeAppointmentComponent";
 class ClinicsScreen extends Component {
     render() {
         return (
-
+        
             <View style={styles.container}>
                 <View style={styles.location}>
                     <Text style={styles.locationText}>SW19 5RR</Text>

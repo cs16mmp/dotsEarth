@@ -1,51 +1,18 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { navigationRef } from './RootNavigation';
-
-
 import React, { Component } from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import { SafeAreaView, StyleSheet, View} from 'react-native';
+import HomeStack from './Screens/HomeStack';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-import HomeScreen from './Screens/HomeScreen'
-import ClinicsScreen from './Screens/ClinicsScreen'
-import TestScreen from './Screens/TestScreen'
-
-const App = () => {
+export default function App () {
   return (
+  
+    <SafeAreaView style={styles.container}>
+      
+     <HomeStack></HomeStack>
 
-    <NavigationContainer ref={navigationRef}>
-      <SafeAreaView style={styles.container}>
-
-      <ClinicsScreen></ClinicsScreen>
-    
-      </SafeAreaView>
-    </NavigationContainer>
+    </SafeAreaView>
+   
   );
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -53,4 +20,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
