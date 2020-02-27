@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import HomeStack from './Screens/HomeStack';
-import AWSpractice from './amplify/backend/AWSpractice';
+import AWSConnection from './src/practise/AWSconnection';
 
 export default function App() {
 
   return (
 
     <SafeAreaView style={styles.container}>
-        <AWSpractice></AWSpractice>
+        <AWSConnection></AWSConnection>
+        {/* <HomeStack></HomeStack> */}
     </SafeAreaView>
 
   );
