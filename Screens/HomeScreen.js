@@ -12,7 +12,7 @@ import {
 import CardComponent from '../Components/CardComponent'
 import database from "../databases/data.json"
 
-var data = JSON.parse(JSON.stringify(database));
+var data = JSON.parse(JSON.stringify(database))
 var DATA = []
 DATA = data.MainMenuItems;
 

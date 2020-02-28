@@ -38,3 +38,73 @@ export const listBookingSystemModels = /* GraphQL */ `
     }
   }
 `;
+export const getBookingSystem = /* GraphQL */ `
+  query GetBookingSystem($ID: String!) {
+    getBookingSystem(ID: $ID) {
+      ID
+      user_id
+      appointment_id
+      clinic_id
+      band
+      time
+      created_at
+    }
+  }
+`;
+export const listBookingSystems = /* GraphQL */ `
+  query ListBookingSystems(
+    $filter: TableBookingSystemFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listBookingSystems(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        ID
+        user_id
+        appointment_id
+        clinic_id
+        band
+        time
+        created_at
+      }
+      nextToken
+    }
+  }
+`;
+export const getNewBookingSystem = /* GraphQL */ `
+  query GetNewBookingSystem($ID: ID!) {
+    getNewBookingSystem(ID: $ID) {
+      ID
+      user_id
+      appointment_id
+      clinic_id
+      band
+      time
+      created_at
+    }
+  }
+`;
+export const listNewBookingSystems = /* GraphQL */ `
+  query ListNewBookingSystems(
+    $filter: TableNewBookingSystemFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNewBookingSystems(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        ID
+        user_id
+        appointment_id
+        clinic_id
+        band
+        time
+        created_at
+      }
+      nextToken
+    }
+  }
+`;

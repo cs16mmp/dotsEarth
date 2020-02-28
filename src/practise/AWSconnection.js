@@ -35,22 +35,27 @@ const reducer = (state, action) => {
 }
 
 //Creates a new appointment in an asynchronous manner
-async function createNewAppointment() {
+async function createNewAppointment(appointment) {
 
-    const appointment = { 
-        user_id: 1, 
-        appointment_id: 1, 
-        clinic_id: 1, 
-        band: 1, 
-        time: 1210210293, 
-        created_at: 1231324435 }
-
+    console.warn("Executed")
+    
+    // const appointment = {
+    //     user_id: 2,
+    //     appointment_id: 2,
+    //     clinic_id: "2",
+    //     band: 2,
+    //     time: 1210210293,
+    //     created_at: 1231324435
+    // }
+ 
     //This is a 'promise'. Pause the code until this promise fulfills
     await API.graphql(graphqlOperation(createBookingSystemModel, { input: appointment }))
-
+    
 }
+
+
 // THE MAIN CLASS FUNCTION
-export default function AWSConnection() {
+function AWSConnection() {
 
     //React Hooks API / Alternative to useState() . It takes a reducer function and initial state
     // as arguments and returns the state and dispatch method. 
@@ -81,13 +86,22 @@ export default function AWSConnection() {
         dispatch({ type: 'QUERY', appointments: appointmentData.data.listBookingSystemModels.items });
     }
 
-    return (
-        <View style={styles.container}>
-            <Button onPress={createNewAppointment} title='Create New Appointment' />
-            {state.appointments.map((appointment, i) => 
-            <Text key={appointment.id}> {appointment.user_id} : {appointment.clinic_id}</Text>)}
-        </View>
-    );
+    // return (
+
+    //     createNewAppointment
+
+
+    //     // <View style={styles.container}>
+    //     //     <Button onPress={createNewAppointment} title='Create New Appointment' />
+    //     //     {state.appointments.map((appointment, i) => 
+    //     //     <Text key={appointment.id}> {appointment.user_id} : {appointment.clinic_id}</Text>)}
+    //     // </View>
+    // );
+}
+export default {
+    AWSConnection,
+    createNewAppointment
+
 }
 
 const styles = StyleSheet.create({
