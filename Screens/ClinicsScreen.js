@@ -15,6 +15,7 @@ import CarouselComponent from "../Components/CarouselComponent";
 import CalendarData from "../api/CalendarData"
 import AppointmentsComponent from "../Components/AppointmentsComponent";
 import TypeAppointmentComponent from "../Components/TypeAppointmentComponent";
+//import AppointmentsComponent from ".././api/AppointmentDataInterface"
 
 
 class ClinicsScreen extends Component {

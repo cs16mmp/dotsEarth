@@ -86,11 +86,9 @@ function AWSConnection() {
         dispatch({ type: 'QUERY', appointments: appointmentData.data.listBookingSystemModels.items });
     }
 
+    return state.appointments
+
     // return (
-
-    //     createNewAppointment
-
-
     //     // <View style={styles.container}>
     //     //     <Button onPress={createNewAppointment} title='Create New Appointment' />
     //     //     {state.appointments.map((appointment, i) => 

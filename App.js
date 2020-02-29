@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import HomeStack from './Screens/HomeStack';
-import AWSConnection from './src/practise/AWSconnection';
+//import AWSConnection from './src/practise/AWSConnection';
 import AWSinput from './src/practise/AWSinput';
 
 export default function App() {
@@ -10,8 +10,8 @@ export default function App() {
 
     <SafeAreaView style={styles.container}>
         {/* <AWSConnection></AWSConnection> */}
-        {/* <HomeStack></HomeStack> */}
-        <AWSinput></AWSinput>
+        <HomeStack></HomeStack>
+        {/* <AWSinput></AWSinput> */}
     </SafeAreaView>
 
   );

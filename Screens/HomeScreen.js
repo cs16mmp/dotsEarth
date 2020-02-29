@@ -12,34 +12,20 @@ import {
 import CardComponent from '../Components/CardComponent'
 import database from "../databases/data.json"
 
-var data = JSON.parse(JSON.stringify(database))
-var DATA = []
-DATA = data.MainMenuItems;
-
 
 function _onTapItem(item){
     navigation.navigate(item)
 }
-
-function Item({ overlay, title, description }) {
-    return (
-        <CardComponent
-            overlayString={overlay}
-            titleString={title}
-            descriptionString={description}
-        />
-    );
-}
 const MainMenu = () => {
     return (
         <FlatList
-            data={DATA}
+            data={database.MainMenuItems}
             renderItem={({ item }) => (
                 <TouchableHighlight onPress={() => _onTapItem(item.title)}>
-                    <Item
-                        overlay={item.overlay}
-                        title={item.title}
-                        description={item.description}
+                    <CardComponent
+                        overlayString={item.overlay}
+                        titleString={item.title}
+                        descriptionString={item.description}
                     />
                 </TouchableHighlight>)}
             keyExtractor={item => item.id}
