@@ -3,29 +3,35 @@ import { View, Image, Text, StyleSheet, TouchableOpacity, FlatList, TouchableHig
 import BookingCardComponent from "./BookingCardComponent";
 import { Overlay } from 'react-native-elements';
 import DrawScreen from "../Screens/DrawScreen";
+import AWSServerInterface from "../src/practise/AWSServerInterface"
+
+//DATA = ["9:30am", "10:30am", "11:30am", "12:30pm", "01:30pm", "02:30pm"]
 
 
-DATA = ["9:30am", "10:30am", "11:30am", "12:30pm", "01:30pm", "02:30pm"]
-
-
-function Item({ time }) {
-    return (
-        <BookingCardComponent
-            timeString={time}
-        />
-    );
+function _onPressed(){
+    console.warn("Pressed")
+    //var conn = AWSServerInterface.Connection();
 }
 
-const AppointmentsComponent = (props) => {
+function toHumanTime(time){
+
+    let date = new Date(time * 1000);
+
+    var humanHours = date.getHours()
+    var humanMinutes = date.getMinutes()
+
+ return humanHours + ":" + humanMinutes
+}
+
+
+const AppointmentsComponent = (props) => {   
     return (
         <FlatList
-            data={DATA}
+            data={props.data}
             renderItem={({ item }) => (
-                <TouchableHighlight 
-                onPress={() => { 
-                    console.warn("pressed")}}>
-                    <Item
-                        time={item}
+                <TouchableHighlight onPress={() => {_onPressed()}}>
+                    <BookingCardComponent
+                        timeString={toHumanTime(item.time)}
                     />
                 </TouchableHighlight>)}
             keyExtractor={item => item.id}
@@ -33,4 +39,6 @@ const AppointmentsComponent = (props) => {
     );
 
 }
-export default AppointmentsComponent;
+
+export default AppointmentsComponent
+

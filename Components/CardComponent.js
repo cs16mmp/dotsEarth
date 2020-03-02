@@ -1,8 +1,5 @@
 import React, { Component } from "react"
 import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Icon } from 'react-native-elements'
-import DeleteIcon from '@material-ui/icons/Delete';
-
 
 const CardComponent = (props) => {
 

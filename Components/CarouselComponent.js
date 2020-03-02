@@ -1,10 +1,14 @@
 import React, { Component } from "react"
 import { View, Text, StyleSheet, TouchableHighlight, ScrollView, } from 'react-native';
 
+function _onPress(id){
+
+    console.warn(id)
+
+}
 
 function Item({ id, day, date }) {
     return (
-
         <View key={id} style={styles.container}>
             <View style={styles.day}>
                 <Text style={styles.dayText}>{day}</Text>
@@ -12,9 +16,7 @@ function Item({ id, day, date }) {
             <View style={styles.date}>
                 <Text style={styles.dateText}>{date}</Text>
             </View>
-
         </View>
-
     );
 }
 
@@ -27,7 +29,7 @@ const CarouselComponent = (props) => {
             {
                 props.items.map(({ date, day, id }) =>
                     (
-                        <TouchableHighlight onPress={() => console.warn("pressed")}>
+                        <TouchableHighlight onPress={() => _onPress(id)}>
                             <Item
                                 id={id}
                                 day={day}

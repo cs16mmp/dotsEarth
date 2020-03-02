@@ -4,31 +4,25 @@ import SmallCardComponent from "./SmallCardComponent";
 
 import database from "../databases/data.json"
 
-var DATA = JSON.parse(JSON.stringify(database));
-var clinicsDATA = DATA.Clinics;
+var DATA = database;
 
-function Item({ overlay, title, phoneNumber, address }) {
-    return (
-        <SmallCardComponent
-            overlayString={overlay}
-            titleString={title}
-            phoneNumberString={phoneNumber}
-            addressString={address}
-        />
-    );
+function _onPress(item){
+
+    console.warn(item.id)
+
 }
 const ClinicsCarouselComponent = (props) => {
     return (
         <FlatList
             horizontal={true}
-            data={clinicsDATA}
+            data={DATA.clinicsItems}
             renderItem={({ item }) => (
-                <TouchableHighlight onPress={() => console.warn("Pressed")}>
-                    <Item
-                        overlay={item.overlay}
-                        title={item.title}
-                        address={item.address}
-                    // phoneNumber={item.phoneNumber}
+                <TouchableHighlight onPress={() => _onPress(item)}>
+                    <SmallCardComponent
+                        overlayString={item.overlay}
+                        titleString={item.title}
+                        phoneNumberString={item.phoneNumber}
+                        addressString={item.address}
                     />
                 </TouchableHighlight>)}
             keyExtractor={item => item.id}

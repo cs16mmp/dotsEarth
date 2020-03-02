@@ -1,0 +1,58 @@
+// IGNORE
+
+
+query listItems {
+  listBookingSystemModels(filter: {
+    clinic_id:{
+      contains: "SE10UN"
+    }
+  }){
+    items {
+      id user_id time
+    }    
+  } 
+}
+
+listBookings =
+  query ListBookingSystemModels(
+    $filter: TableBookingSystemModelFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listBookingSystemModels(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        user_id
+        appointment_id
+        clinic_id
+        band
+        time
+        created_at
+      }
+      nextToken
+    }
+}
+
+
+
+query listItemsNew($variable: String) {
+  listBookingSystemModels(filter: { 
+    clinic_id: { 
+      contains: $variable
+    }
+  }){
+    items{
+      user_id appointment_id time
+    }
+  }
+}   
+
+query getItems{
+  getBookingSystemModel(id: "0667808c-46a4-470b-a21f-7f94690ccdbc" ){
+    user_id time
+  }
+}
