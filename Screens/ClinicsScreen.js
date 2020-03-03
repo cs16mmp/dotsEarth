@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, useReducer, useEffect } from "react"
 import {
     SafeAreaView,
     StyleSheet,
@@ -10,18 +10,96 @@ import {
     TouchableHighlight,
 } from 'react-native';
 
+import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import * as queries from '../src/graphql/queries';
+import * as subscriptions from '../src/graphql/subscriptions';
+import PubSub from '@aws-amplify/pubsub';
+import config from '../aws-exports'
+
+API.configure(config)
+PubSub.configure(config)
+
 import ClinicsCarouselComponent from '../Components/ClinicsCarouselComponent'
 import CarouselComponent from "../Components/CarouselComponent";
 import CalendarData from "../api/CalendarData"
 import AppointmentsComponent from "../Components/AppointmentsComponent";
 import TypeAppointmentComponent from "../Components/TypeAppointmentComponent";
-//import AppointmentsComponent from ".././api/AppointmentDataInterface"
 
+const initialState = { appointments: [] };
+var DATA = [];
 
-class ClinicsScreen extends Component {
-    render() {
-        return (
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'QUERY':
+            return { ...state, appointments: action.appointments }
+        case 'SUBSCRIPTION':
+            return { ...state, appointments: [...state.appointments, action.appointments] }
+        default:
+            return state
+    }
+}
+
+async function getBookingsDATA(dispatch) {
+
+    const appointmentData = await API.graphql(graphqlOperation(queries.listBookingSystemDBs));
+    dispatch({ type: 'QUERY', appointments: appointmentData.data.listBookingSystemDBs.items });
+
+}
+
+function connectAWS() {
+    
+    const [state, dispatch] = useReducer(reducer, initialState)
+
+    useEffect(() => {
+
+        getData()
+
+        const subscription = API.graphql(graphqlOperation(subscriptions.onCreateBookingSystemDb)).subscribe({
+            next: (eventData) => {
+                const appointment = eventData.value.data.subscriptions.onCreateBookingSystemDb;
+                dispatch({ type: 'SUBSCRIPTION', appointment })
+            }
+        })
+        return () => subscription.unsubscribe()
+
+    }, [])
+
+    async function getData() {
+        const appointmentData = await API.graphql(graphqlOperation(queries.listBookingSystemDBs))
+        dispatch({ type: 'QUERY', appointments: appointmentData.data.listBookingSystemDBs.items });
+    }
+
+}
+
+export default function ClinicsScreen() {
         
+    const [state, dispatch] = useReducer(reducer, initialState)
+
+    useEffect(() => {
+
+        getData()
+
+        const subscription = API.graphql(graphqlOperation(subscriptions.onCreateBookingSystemDb)).subscribe({
+            next: (eventData) => {
+                const appointment = eventData.value.data.subscriptions.onCreateBookingSystemDb;
+                dispatch({ type: 'SUBSCRIPTION', appointment })
+            }
+        })
+        return () => subscription.unsubscribe()
+
+    }, [])
+
+    async function getData() {
+        const appointmentData = await API.graphql(graphqlOperation(queries.listBookingSystemDBs, {
+            filter:{
+                appointment_id: {contains: "EMPTY"}
+            }
+        }))
+        dispatch({ type: 'QUERY', appointments: appointmentData.data.listBookingSystemDBs.items });
+    }
+
+        return (
+
             <View style={styles.container}>
                 <View style={styles.location}>
                     <Text style={styles.locationText}>SW19 5RR</Text>
@@ -36,7 +114,7 @@ class ClinicsScreen extends Component {
                 </View>
                 <View style={styles.date}>
 
-                    <CarouselComponent items = {CalendarData(30)}/>
+                    <CarouselComponent items={[]} />
 
                 </View>
                 <View style={styles.typeAppointment}>
@@ -46,25 +124,22 @@ class ClinicsScreen extends Component {
                 </View>
                 <View style={styles.availableAppointments}>
 
-                    <AppointmentsComponent></AppointmentsComponent>
+                    <AppointmentsComponent data={state.appointments} ></AppointmentsComponent>
 
                 </View>
 
 
             </View>
         )
-    }
 }
-
-export default ClinicsScreen;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:"white"
+        backgroundColor: "white"
     },
     location: {
-        paddingLeft:16,
+        paddingLeft: 16,
         flex: 1,
         minHeight: 15,
         maxHeight: 10,
@@ -72,13 +147,13 @@ const styles = StyleSheet.create({
 
     },
     title: {
-        paddingLeft:16,
+        paddingLeft: 16,
         flex: 1,
         minHeight: 36,
         maxHeight: 36,
         flexGrow: 1,
     },
-    clinics: {     
+    clinics: {
         flex: 1,
         minHeight: 143,
         maxHeight: 170,
@@ -104,7 +179,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Avenir-Heavy',
         color: '#2C4159',
     },
-    locationText:{
+    locationText: {
         fontSize: 10,
         fontFamily: 'Avenir-Book',
         color: '#2C4159',

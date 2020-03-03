@@ -1,228 +1,111 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateBookingSystemModel = /* GraphQL */ `
-  subscription OnCreateBookingSystemModel(
-    $id: ID
-    $user_id: Int
-    $appointment_id: Int
-    $clinic_id: String
-    $band: Int
-  ) {
-    onCreateBookingSystemModel(
-      id: $id
-      user_id: $user_id
-      appointment_id: $appointment_id
-      clinic_id: $clinic_id
-      band: $band
-    ) {
+export const onCreateBookingSystemDb = /* GraphQL */ `
+  subscription OnCreateBookingSystemDb {
+    onCreateBookingSystemDB {
       id
-      user_id
       appointment_id
       clinic_id
-      band
       time
       created_at
+      date
+      band
     }
   }
 `;
-export const onUpdateBookingSystemModel = /* GraphQL */ `
-  subscription OnUpdateBookingSystemModel(
-    $id: ID
-    $user_id: Int
-    $appointment_id: Int
-    $clinic_id: String
-    $band: Int
-  ) {
-    onUpdateBookingSystemModel(
-      id: $id
-      user_id: $user_id
-      appointment_id: $appointment_id
-      clinic_id: $clinic_id
-      band: $band
-    ) {
+export const onUpdateBookingSystemDb = /* GraphQL */ `
+  subscription OnUpdateBookingSystemDb {
+    onUpdateBookingSystemDB {
       id
-      user_id
       appointment_id
       clinic_id
-      band
       time
       created_at
+      date
+      band
     }
   }
 `;
-export const onDeleteBookingSystemModel = /* GraphQL */ `
-  subscription OnDeleteBookingSystemModel(
-    $id: ID
-    $user_id: Int
-    $appointment_id: Int
-    $clinic_id: String
-    $band: Int
-  ) {
-    onDeleteBookingSystemModel(
-      id: $id
-      user_id: $user_id
-      appointment_id: $appointment_id
-      clinic_id: $clinic_id
-      band: $band
-    ) {
+export const onDeleteBookingSystemDb = /* GraphQL */ `
+  subscription OnDeleteBookingSystemDb {
+    onDeleteBookingSystemDB {
       id
-      user_id
       appointment_id
       clinic_id
-      band
       time
+      created_at
+      date
+      band
+    }
+  }
+`;
+export const onCreateAppointmentDb = /* GraphQL */ `
+  subscription OnCreateAppointmentDb {
+    onCreateAppointmentDB {
+      id
+      clinic_id
+      name
+      description
+      phone
       created_at
     }
   }
 `;
-export const onCreateBookingSystem = /* GraphQL */ `
-  subscription OnCreateBookingSystem(
-    $ID: String
-    $user_id: String
-    $appointment_id: String
-    $clinic_id: String
-    $band: Int
-  ) {
-    onCreateBookingSystem(
-      ID: $ID
-      user_id: $user_id
-      appointment_id: $appointment_id
-      clinic_id: $clinic_id
-      band: $band
-    ) {
-      ID
-      user_id
-      appointment_id
+export const onUpdateAppointmentDb = /* GraphQL */ `
+  subscription OnUpdateAppointmentDb {
+    onUpdateAppointmentDB {
+      id
       clinic_id
-      band
-      time
+      name
+      description
+      phone
       created_at
     }
   }
 `;
-export const onUpdateBookingSystem = /* GraphQL */ `
-  subscription OnUpdateBookingSystem(
-    $ID: String
-    $user_id: String
-    $appointment_id: String
-    $clinic_id: String
-    $band: Int
-  ) {
-    onUpdateBookingSystem(
-      ID: $ID
-      user_id: $user_id
-      appointment_id: $appointment_id
-      clinic_id: $clinic_id
-      band: $band
-    ) {
-      ID
-      user_id
-      appointment_id
+export const onDeleteAppointmentDb = /* GraphQL */ `
+  subscription OnDeleteAppointmentDb {
+    onDeleteAppointmentDB {
+      id
       clinic_id
-      band
-      time
+      name
+      description
+      phone
       created_at
     }
   }
 `;
-export const onDeleteBookingSystem = /* GraphQL */ `
-  subscription OnDeleteBookingSystem(
-    $ID: String
-    $user_id: String
-    $appointment_id: String
-    $clinic_id: String
-    $band: Int
-  ) {
-    onDeleteBookingSystem(
-      ID: $ID
-      user_id: $user_id
-      appointment_id: $appointment_id
-      clinic_id: $clinic_id
-      band: $band
-    ) {
-      ID
-      user_id
-      appointment_id
-      clinic_id
-      band
-      time
-      created_at
+export const onCreateClinicsDb = /* GraphQL */ `
+  subscription OnCreateClinicsDb {
+    onCreateClinicsDB {
+      id
+      name
+      address
+      phone
+      description
     }
   }
 `;
-export const onCreateNewBookingSystem = /* GraphQL */ `
-  subscription OnCreateNewBookingSystem(
-    $ID: ID
-    $user_id: String
-    $appointment_id: String
-    $clinic_id: String
-    $band: Int
-  ) {
-    onCreateNewBookingSystem(
-      ID: $ID
-      user_id: $user_id
-      appointment_id: $appointment_id
-      clinic_id: $clinic_id
-      band: $band
-    ) {
-      ID
-      user_id
-      appointment_id
-      clinic_id
-      band
-      time
-      created_at
+export const onUpdateClinicsDb = /* GraphQL */ `
+  subscription OnUpdateClinicsDb {
+    onUpdateClinicsDB {
+      id
+      name
+      address
+      phone
+      description
     }
   }
 `;
-export const onUpdateNewBookingSystem = /* GraphQL */ `
-  subscription OnUpdateNewBookingSystem(
-    $ID: ID
-    $user_id: String
-    $appointment_id: String
-    $clinic_id: String
-    $band: Int
-  ) {
-    onUpdateNewBookingSystem(
-      ID: $ID
-      user_id: $user_id
-      appointment_id: $appointment_id
-      clinic_id: $clinic_id
-      band: $band
-    ) {
-      ID
-      user_id
-      appointment_id
-      clinic_id
-      band
-      time
-      created_at
-    }
-  }
-`;
-export const onDeleteNewBookingSystem = /* GraphQL */ `
-  subscription OnDeleteNewBookingSystem(
-    $ID: ID
-    $user_id: String
-    $appointment_id: String
-    $clinic_id: String
-    $band: Int
-  ) {
-    onDeleteNewBookingSystem(
-      ID: $ID
-      user_id: $user_id
-      appointment_id: $appointment_id
-      clinic_id: $clinic_id
-      band: $band
-    ) {
-      ID
-      user_id
-      appointment_id
-      clinic_id
-      band
-      time
-      created_at
+export const onDeleteClinicsDb = /* GraphQL */ `
+  subscription OnDeleteClinicsDb {
+    onDeleteClinicsDB {
+      id
+      name
+      address
+      phone
+      description
     }
   }
 `;

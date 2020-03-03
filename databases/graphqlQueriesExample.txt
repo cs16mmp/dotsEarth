@@ -2,7 +2,8 @@
 
 
 query listItems {
-  listBookingSystemModels(filter: {
+  listBookingSystemModels(
+    filter: {
     clinic_id:{
       contains: "SE10UN"
     }
@@ -54,5 +55,14 @@ query listItemsNew($variable: String) {
 query getItems{
   getBookingSystemModel(id: "0667808c-46a4-470b-a21f-7f94690ccdbc" ){
     user_id time
+  }
+}
+
+mutation updateAppointment($variable: ID!) {
+  updateBookingSystemDB(input: {
+    id: $variable
+    appointment_id: "BOOKED"
+  }){
+    id appointment_id 
   }
 }

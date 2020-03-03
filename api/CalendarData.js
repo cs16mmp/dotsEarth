@@ -13,22 +13,6 @@ var _day = {
 }
 var _days = []
 
-// function CalendarData(days) {
-//         for (let index = 0; index < days; index++) {
-
-//             _today = _today + 8.64e+7 // Add one day 
-//             var dateObject = new Date(_today)
-//             var newData = {
-//                 id: index,
-//                 date: dateObject.getDate(),
-//                 day: _daysArray[dateObject.getDay()],
-//                 month: _monthsArray[dateObject.getMonth()]
-//             }
-//             _data.push(newData)
-//         }
-//         return _data;
-// }
-
 function CalendarData(numberDays){
     
    let _date = new Date(_today)
@@ -41,7 +25,7 @@ function CalendarData(numberDays){
         var _todayObject = new Date(_todayTime)
 
         _day = {
-            id: index,
+            id: Math.floor(100000 + Math.random() * 900000),
             time: _todayTime,
             date: _todayObject.getDate(),
             day: _daysArray[_todayObject.getDay()],

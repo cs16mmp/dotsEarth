@@ -1,21 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component, useReducer, useEffect } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import HomeStack from './Screens/HomeStack';
-//import AWSConnection from './src/practise/AWSConnection';
-import AWSinput from './src/practise/AWSinput';
+
+import AWSTEST from './AWSTEST'
+
 
 export default function App() {
-
+  
   return (
 
     <SafeAreaView style={styles.container}>
-        {/* <AWSConnection></AWSConnection> */}
         <HomeStack></HomeStack>
-        {/* <AWSinput></AWSinput> */}
+
+        {/* <AWSTEST></AWSTEST> */}
     </SafeAreaView>
 
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

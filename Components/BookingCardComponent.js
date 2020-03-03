@@ -6,11 +6,9 @@ const BookingCardComponent = (props) => {
 
     return (
         <View style={styles.container}>
-             <View style={styles.card}>
-
+            <View style={styles.card}>
                 <Text style={styles.timeText}>{props.timeString}</Text>
-
-             </View>
+            </View>
         </View>
     );
 }
@@ -41,7 +39,7 @@ const styles = StyleSheet.create({
 
         shadowOffset: {
             height: 3,
-        }, 
+        },
         shadowRadius: 5,
         flexDirection: 'row',
     },
@@ -50,5 +48,4 @@ const styles = StyleSheet.create({
         fontFamily: 'Avenir-Heavy',
         color: '#2C4159',
     },
-   
 })

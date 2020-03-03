@@ -11,7 +11,6 @@ import STIScreen from './STIScreen'
 import TestingKitScreen from './TestingKitScreen'
 import NotificationsScreen from './NotificationsScreen'
 
-
 const RootStack = createStackNavigator();
 
 //headerMode="none" 

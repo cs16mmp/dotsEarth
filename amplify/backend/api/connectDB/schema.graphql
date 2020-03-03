@@ -1,0 +1,24 @@
+type BookingSystemDB @model {
+  id: ID!
+  appointment_id: String
+  clinic_id: String
+  time: AWSTimestamp
+  created_at: AWSTimestamp
+  date: String
+  band: Int
+}
+type AppointmentDB @model {
+  id: ID!
+  clinic_id: String
+  name: String
+  description: String
+  phone: String
+  created_at: AWSTimestamp
+}
+type ClinicsDB @model {
+  id: ID!
+  name: String
+  address: String
+  phone: String
+  description: String
+}
