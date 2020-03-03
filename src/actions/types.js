@@ -1,0 +1,7 @@
+export const QUERY_APPSYNC = 'QUERY_APPSYNC';
+export const SUBSCRIPTION_APPSYNC = 'SUBSCRIPTION_APPSYNC';
+
+
+
+
+
