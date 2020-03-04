@@ -22,3 +22,15 @@ type ClinicsDB @model {
   phone: String
   description: String
 }
+type InfectionsDB @Model{
+  id: ID!
+  name: String
+  description: String
+  webiste: String
+}
+type OrganiationsDB @Model{
+ id: ID! 
+ name: String
+ description: String 
+ website: String
+}

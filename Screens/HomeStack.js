@@ -10,6 +10,7 @@ import OrganisationsScreen from './OrganisationsScreen'
 import STIScreen from './STIScreen'
 import TestingKitScreen from './TestingKitScreen'
 import NotificationsScreen from './NotificationsScreen'
+import BookingScreen from './BookingScreen'
 
 const RootStack = createStackNavigator();
 
@@ -18,16 +19,14 @@ const RootStack = createStackNavigator();
 export default function HomeStack() {
     return (
         <NavigationContainer>
-            <RootStack.Navigator initialRouteName="Home" headerMode="float" >
+            <RootStack.Navigator initialRouteName="Home" headerMode="none" >
                 <RootStack.Screen
                     name="Home"
-                    component={HomeScreen}
-                    options={{ headerShown: "false" }} />
+                    component={HomeScreen}/>
 
                 <RootStack.Screen
                     name="Clinics"
-                    component={ClinicsScreen}
-                    options={{ headerShown: "true" }} />
+                    component={ClinicsScreen}/>
 
                 <RootStack.Screen
                     name="Organisations"
@@ -44,6 +43,11 @@ export default function HomeStack() {
                 <RootStack.Screen
                     name="Order Testing Kit"
                     component={TestingKitScreen} />
+                
+                <RootStack.Screen
+                    name="Booking"
+                    component={BookingScreen} />
+
             </RootStack.Navigator>
         </NavigationContainer>
 

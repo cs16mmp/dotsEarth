@@ -46,32 +46,7 @@ async function getBookingsDATA(dispatch) {
 
 }
 
-function connectAWS() {
-    
-    const [state, dispatch] = useReducer(reducer, initialState)
-
-    useEffect(() => {
-
-        getData()
-
-        const subscription = API.graphql(graphqlOperation(subscriptions.onCreateBookingSystemDb)).subscribe({
-            next: (eventData) => {
-                const appointment = eventData.value.data.subscriptions.onCreateBookingSystemDb;
-                dispatch({ type: 'SUBSCRIPTION', appointment })
-            }
-        })
-        return () => subscription.unsubscribe()
-
-    }, [])
-
-    async function getData() {
-        const appointmentData = await API.graphql(graphqlOperation(queries.listBookingSystemDBs))
-        dispatch({ type: 'QUERY', appointments: appointmentData.data.listBookingSystemDBs.items });
-    }
-
-}
-
-export default function ClinicsScreen() {
+export default function ClinicsScreen({navigation}) {
         
     const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -124,7 +99,9 @@ export default function ClinicsScreen() {
                 </View>
                 <View style={styles.availableAppointments}>
 
-                    <AppointmentsComponent data={state.appointments} ></AppointmentsComponent>
+                    <AppointmentsComponent 
+                    data={state.appointments} 
+                    navigation = {navigation}/>
 
                 </View>
 

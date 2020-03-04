@@ -1,4 +1,4 @@
-
+var _monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function generateAppointments(clinic_id, days ) {
 
@@ -18,9 +18,7 @@ function generateAppointments(clinic_id, days ) {
 
     return generateTime(appointment, days)
 }
-
 function selectClinic(appointment) {
-
 
     const _clinicsID = ["SE10UN", "W1D6AE", "0W67AL"]
     var result = [];
@@ -33,22 +31,29 @@ function selectClinic(appointment) {
 }
 function toHumanTime(time) {
 
-    let date = new Date(time * 1000);
+    let dateObject = new Date(time);
 
-    var humanHours = date.getHours()
-    var humanMinutes = date.getMinutes()
+    const hours = dateObject.getHours()
+    const minutes = dateObject.getMinutes()
+    const date = dateObject.getDate()
+    const day = _daysArray[dateObject.getDay()]
+    const month = _monthsArray[dateObject.getMonth()]
+    const year = dateObject.getFullYear()
 
-    return humanHours + ":" + humanMinutes
+    return hours + ":" + minutes + " - " + date + "/" + month + "/" + year
 }
 function generateTime(appointment, days) {
 
     var result = [];
     var tempAppointment = [];
 
+    const _today = new Date (Date.now())
+
     var hourTimeStamp;
-    var dayTimeStamp = 1582965000; //29 - 08:30
-    const oneDay = 86400;
-    const oneHour = 3600;
+    var dayTimeStamp = (new Date(_today.getFullYear(), _today.getMonth(), _today.getDate(), "08", "30").getTime()); //Today 8:30
+    const oneDay = 86400 * 1000;
+    const oneHour = 3600 * 1000;
+    
 
     for (let i = 0; i < days; i++) { //Add a day
 
@@ -69,7 +74,5 @@ function generateTime(appointment, days) {
     return result;
 }
 
-export default {
-    generateAppointments,
-}
+export default generateAppointments
 
